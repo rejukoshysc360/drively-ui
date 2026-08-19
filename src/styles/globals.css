@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Base utility styles --- */
+.btn { @apply inline-flex items-center rounded-xl px-3 py-2 border bg-white hover:bg-gray-50 text-sm; }
+.btn-primary { @apply inline-flex items-center rounded-xl px-3 py-2 bg-black text-white hover:bg-gray-800 text-sm; }
+.input { @apply w-full rounded-xl border px-3 py-2; }
+.label { @apply block text-sm text-gray-600 mb-1; }
+.card { @apply rounded-2xl border p-4 bg-white; }
+
+/* --- Drag indicators --- */
+.drop-indicator {
+  height: 2px;
+  background-color: #3b82f6; /* blue-500 */
+  margin: 0;
+  padding: 0;
+}
+
+.drop-vertical-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #3b82f6;
+}
+
+/* --- Gantt highlight --- */
+.gantt .today-highlight {
+  fill: #dbe6a9 !important;
+  opacity: 0.6;
+}
+
+/* --- Buttons --- */
+.btn-projected {
+  @apply px-3 py-1 rounded-full text-xs font-medium bg-[#969EA3] text-white shadow-md hover:shadow-lg active:translate-y-[1px] active:shadow-sm transition-all duration-200;
+}
+
+/* --- Label (flat pill) --- */
+.btn-label { @apply px-3 py-1 rounded-full text-xs font-medium transition; }
+.btn-label--deps { @apply bg-[#f5d88c] text-black; }
+
+/* --- Scrollable Headless UI dropdowns --- */
+[data-headlessui-state] [role="listbox"],
+[role="listbox"].overflow-fix,
+.headlessui-listbox-options {
+  max-height: 16rem; /* ~256px */
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* --- Scrollbar Styling for dropdowns --- */
+[role="listbox"]::-webkit-scrollbar,
+.headlessui-listbox-options::-webkit-scrollbar {
+  width: 8px;
+}
+[role="listbox"]::-webkit-scrollbar-track,
+.headlessui-listbox-options::-webkit-scrollbar-track {
+  background: #f3f4f6; /* gray-100 */
+  border-radius: 8px;
+}
+[role="listbox"]::-webkit-scrollbar-thumb,
+.headlessui-listbox-options::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* gray-400 */
+  border-radius: 8px;
+}
+[role="listbox"]::-webkit-scrollbar-thumb:hover,
+.headlessui-listbox-options::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280; /* gray-500 */
+}
+
+/* --- Scroll container utility --- */
+.always-scrollbar {
+  overflow-x: scroll;
+  scrollbar-gutter: stable;
+}
+.always-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+.always-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* slate-300 */
+  border-radius: 8px;
+}
+.always-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* slate-400 */
+}
+
+
+.always-scrollbar-y {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.always-scrollbar-y::-webkit-scrollbar {
+  width: 8px;
+}
+
+.always-scrollbar-y::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.always-scrollbar-y::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 8px;
+}
+
+.always-scrollbar-y::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* --- Fix: Headless UI sometimes locks body scroll --- */
+body[style*="overflow: hidden"],
+html[style*="overflow: hidden"] {
+  overflow-y: auto !important;
+}
+
+/* --- Scrollable Dialog Panels --- */
+[data-headlessui-state] [role="dialog"],
+[role="dialog"].scrollable-dialog {
+  max-height: 90vh; /* limit dialog to viewport height */
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-right: 0.25rem;
+}
+
+/* Inner dialog panel content */
+[data-headlessui-state] [role="dialog"] > * {
+  max-height: inherit;
+  overflow-y: auto;
+}
+
+/* --- ✅ Fix: Allow full dropdown scroll inside dialog --- */
+[data-headlessui-state][role="dialog"],
+[role="dialog"].scrollable-dialog {
+  overflow: visible !important;
+}
+
+[data-headlessui-state][role="dialog"] * {
+  overflow: visible !important;
+}
+
+.icon-copy-btn.copied .icon-copy {
+  opacity: 0;
+}
+.icon-copy-btn.copied .icon-check {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.shadow-right {
+  box-shadow: 4px 0 6px -2px rgba(0,0,0,0.1);
+}

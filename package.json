@@ -1,11 +1,15 @@
 {
   "name": "hr-frontend",
   "private": true,
+  "_comment": "App UI doesnt require port for qa and prod since it runs on ngnix 80/443 -> prod and qa dist folders ",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
+    "build:qa": "vite build --mode qa",
+    "build:main": "vite build --mode main",
+    "build:local": "vite build --mode local",
     "preview": "vite preview",
     "postinstall": "patch-package"
   },
@@ -17,6 +21,7 @@
     "@headlessui/react": "^2.2.9",
     "@hello-pangea/dnd": "^18.0.1",
     "@hookform/resolvers": "^3.3.4",
+    "@supabase/supabase-js": "^2.110.7",
     "@tanstack/react-query": "^5.51.15",
     "@tanstack/react-table": "^8.21.3",
     "axios": "^1.7.7",

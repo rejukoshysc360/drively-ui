@@ -17,10 +17,5 @@ export default defineConfig({
     rollupOptions: {
       // optionally specify externals etc.
     },
-  },
-  server: {
-    host: 'localhost',
-    port: 3002,
-    allowedHosts: ['hropera.com', 'www.hropera.com'],
-  },
+  }
 });
